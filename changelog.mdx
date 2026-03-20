@@ -1,0 +1,122 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and bug fixes in Bill Hunter.
+---
+
+## Recent Updates
+
+Stay informed about new features, improvements, and fixes in Bill Hunter. Updates appear here in reverse chronological order, with the most recent changes first.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for shared documents
+- Introduced comment threads with `@mentions` support
+- New export options including PDF and Markdown bundles
+
+## Improvements
+
+- Enhanced search with fuzzy matching and filters
+- Optimized performance for large documentation spaces
+- Updated UI components with improved accessibility
+
+## Bug Fixes
+
+- Fixed sync issues in offline mode
+- Resolved tagging duplication errors
+- Corrected keyboard navigation in version history
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Advanced tagging system with custom categories
+- Integrated full-text search across all projects
+- Bulk actions for organizing documentation pages
+
+## Improvements
+
+- Faster page rendering with lazy loading
+- Better mobile responsiveness for editors
+
+## Bug Fixes
+
+- Fixed broken links in imported Markdown files
+- Resolved permission errors in shared workspaces
+- Patched export failures for documents with images
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## Initial Release
+
+- Core documentation workspace with page organization
+- Real-time editing and version history
+- Basic search and tagging capabilities
+- User authentication and project sharing
+
+## Breaking Changes
+
+- Initial schema update requires data migration for early beta users
+
+</Update>
+
+## Stay Updated
+
+Receive notifications about new releases and announcements through multiple channels.
+
+<Columns cols={3}>
+  <Card title="GitHub Releases" icon="github" href="https://github.com/your-org/bill-hunter/releases" target="_blank">
+    Follow the repository for release notes, tags, and changelogs.
+  </Card>
+  <Card title="Newsletter" icon="mail" href="https://example.com/newsletter" target="_blank">
+    Subscribe for monthly summaries of updates and tips.
+  </Card>
+  <Card title="RSS Feed" icon="rss" href="/changelog/rss.xml">
+    Add the RSS feed to your reader for instant updates.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Enable notifications in your GitHub account settings to get alerts for new releases.
+</Callout>
+
+## Report Issues and Provide Feedback
+
+Help improve Bill Hunter by reporting bugs or suggesting features.
+
+<Steps>
+  <Step title="Search Existing Issues" icon="search">
+    Check the [GitHub issues](https://github.com/your-org/bill-hunter/issues) page first to avoid duplicates.
+  </Step>
+  <Step title="Create New Issue" icon="plus">
+    Click "New Issue" and provide:
+    
+    - Clear title
+    - Steps to reproduce
+    - Expected vs. actual behavior
+    - Browser/environment details
+  </Step>
+  <Step title="Submit Feedback" icon="thumbs-up">
+    Use the feedback form in the dashboard or comment on discussions.
+  </Step>
+</Steps>
+
+<Expandable title="Advanced: Set Up Webhook Notifications" default-open="false">
+  Receive updates programmatically via webhooks.
+  
+  ```javascript
+  // Example webhook payload handler
+  app.post('/webhook/bill-hunter', (req, res) => {
+    const { event, version, changes } = req.body;
+    if (event === 'release') {
+      notifyTeam(version, changes);
+    }
+    res.status(200).send('OK');
+  });
+  ```
+</Expandable>

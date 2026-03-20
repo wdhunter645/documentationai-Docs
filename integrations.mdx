@@ -1,0 +1,147 @@
+---
+title: Integrations and Extensions
+description: Connect Bill Hunter with third-party tools to enhance your documentation workflow.
+---
+
+## Overview
+
+Bill Hunter supports seamless integrations with popular tools to automate your documentation processes. You can connect GitHub for version control sync, Slack for notifications, and more. Use webhooks to trigger updates on events, leverage the API for custom extensions, embed external content, and sync with project management platforms like Jira or Trello.
+
+<Columns cols={3}>
+  <Card title="GitHub" icon="github" href="https://github.com">
+    Sync documentation with your repositories for automatic updates on commits.
+  </Card>
+  <Card title="Slack" icon="message-circle" href="https://slack.com">
+    Receive real-time notifications about documentation changes and reviews.
+  </Card>
+  <Card title="Jira" icon="package" href="https://jira.com">
+    Link docs to tickets for better project tracking and knowledge sharing.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Start with GitHub integration for the quickest workflow improvements.
+</Callout>
+
+## Setting Up Webhooks
+
+Webhooks enable real-time automation. Configure them to notify external services when documentation pages update, new versions publish, or comments arrive.
+
+<Steps>
+  <Step title="Create Webhook" icon="settings">
+    Navigate to your Bill Hunter workspace settings. Select `Integrations` > `Webhooks` and click `New Webhook`.
+  </Step>
+  <Step title="Configure Events" icon="zap">
+    Choose events like `page.updated` or `comment.created`. Enter your target URL, such as `https://your-webhook-url.com/billhunter`.
+  </Step>
+  <Step title="Test and Save" icon="play">
+    Send a test payload and verify receipt. Save the webhook to activate it.
+  </Step>
+</Steps>
+
+## Webhook Payload Example
+
+Payloads include event details and affected resources.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Example webhook handler
+  app.post('/billhunter', (req, res) => {
+    const event = req.body.event; // e.g., "page.updated"
+    const data = req.body.data;
+    console.log(`Event: ${event}`, data);
+    res.status(200).send('OK');
+  });
+  ```
+  ```python
+  # Example webhook handler
+  from flask import Flask, request
+
+  app = Flask(__name__)
+
+  @app.route('/billhunter', methods=['POST'])
+  def webhook():
+      event = request.json['event']  # e.g., "page.updated"
+      data = request.json['data']
+      print(f"Event: {event}", data)
+      return 'OK', 200
+  ```
+</CodeGroup>
+
+## API Access for Custom Extensions
+
+Build custom integrations using Bill Hunter's REST API at `https://api.example.com/v1`. Authenticate with your API key.
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer `{YOUR_API_KEY}`
+</ParamField>
+
+<ParamField query="workspace" param-type="string" required="false">
+  Filter by workspace ID.
+</ParamField>
+
+Example: Fetch recent pages.
+
+<Request tabs="cURL,JavaScript">
+  ```bash
+  curl -X GET "https://api.example.com/v1/pages?limit=10" \
+    -H "Authorization: Bearer YOUR_API_KEY"
+  ```
+  ```javascript
+  const response = await fetch('https://api.example.com/v1/pages?limit=10', {
+    headers: { Authorization: 'Bearer YOUR_API_KEY' }
+  });
+  const pages = await response.json();
+  ```
+</Request>
+
+<Response show-lines="false">
+  ```json
+  {
+    "pages": [
+      { "id": "page-123", "title": "Introduction", "updated": "2024-01-15T10:00:00Z" }
+    ]
+  }
+  ```
+</Response>
+
+## Embedding External Content
+
+Embed tools directly into your docs for interactive experiences.
+
+<Tabs>
+  <Tab title="GitHub Gist" icon="code">
+    Use the embed code from any Gist:
+    
+    ```
+    <script src="https://gist.github.com/user/abc123.js"></script>
+    ```
+  </Tab>
+  <Tab title="Figma" icon="square">
+    Copy the embed URL from Figma:
+    
+    ```
+    <iframe src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/xyz" />
+    ```
+  </Tab>
+</Tabs>
+
+## Syncing with Project Management Tools
+
+<Expandable title="Advanced Sync Options" default-open="false">
+  Connect Bill Hunter to Jira, Asana, or Trello via Zapier or native webhooks.
+  
+  ```mermaid
+  sequenceDiagram
+      Jira->>Bill Hunter: Ticket Created
+      Bill Hunter->>Jira: Doc Link Added
+      GitHub->>Bill Hunter: Commit Pushed
+      Bill Hunter->>Slack: Notification Sent
+  ```
+  
+  Review Zapier templates for pre-built workflows.
+</Expandable>
+
+<Callout kind="info">
+  Check your plan limits for webhook and API usage. Upgrade for higher quotas.
+</Callout>

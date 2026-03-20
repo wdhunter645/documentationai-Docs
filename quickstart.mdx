@@ -1,0 +1,142 @@
+---
+title: Quickstart Guide
+description: Set up your Bill Hunter account and create your first documentation space in under 5 minutes.
+---
+
+## Prerequisites
+
+<Callout kind="info" title="Before you begin">
+You need a valid email address and a modern web browser like Chrome, Firefox, or Safari. No software installation required.
+</Callout>
+
+## Sign up for an account
+
+Get started by creating your Bill Hunter account. The process takes less than 2 minutes.
+
+<Steps>
+  <Step title="Visit the signup page" icon="user-plus">
+    Open your browser and navigate to `https://billhunter.com/signup`.
+  </Step>
+  <Step title="Enter your details" icon="edit-3">
+    Provide your email address, create a password, and complete any verification steps.
+  </Step>
+  <Step title="Verify your email" icon="mail">
+    Check your inbox for a verification email from Bill Hunter and click the link to activate your account.
+  </Step>
+</Steps>
+
+## Create your first documentation space
+
+Once logged in, create a space to organize your docs.
+
+<Steps>
+  <Step title="Access the dashboard" icon="home">
+    After login, you land on the dashboard at `https://app.billhunter.com/dashboard`.
+  </Step>
+  <Step title="Create a new space" icon="plus">
+    Click the `+ New Space` button in the top right. Enter a name like "My Project Docs" and select a template.
+  </Step>
+  <Step title="Customize settings" icon="settings">
+    Choose visibility (public, private, or workspace) and brand color (`#3B82F6` for Bill Hunter blue).
+  </Step>
+</Steps>
+
+## Import existing documents
+
+Bill Hunter supports seamless imports from various sources.
+
+<Tabs>
+  <Tab title="Markdown Files" icon="file-text">
+    Upload `.md` or `.mdx` files directly.
+    
+    <Steps>
+      <Step title="Drag and drop">
+        In your space, drag files into the import area.
+      </Step>
+      <Step title="Select folder structure">
+        Preserve your folder hierarchy for organized docs.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Google Docs" icon="file">
+    Connect your Google account for one-click import.
+    
+````markdown
+1. Click "Import from Google Docs"
+2. Authorize Bill Hunter
+3. Select docs to import
+````
+
+  </Tab>
+  <Tab title="GitHub Repo" icon="github">
+    Import entire repos as living documentation.
+    
+    Use this URL format: `https://github.com/yourusername/your-repo`
+  </Tab>
+</Tabs>
+
+## Basic navigation and interface tour
+
+The Bill Hunter interface is intuitive:
+
+- **Sidebar**: Spaces, pages, and search
+- **Editor**: Real-time MDX editing with live preview
+- **Top bar**: Publish, share, and settings
+
+<Expandable title="Advanced navigation tips" default-open="false">
+Use keyboard shortcuts like `Cmd/Ctrl + K` for quick search and `Cmd/Ctrl + S` to save drafts.
+</Expandable>
+
+## Save and publish your first page
+
+Create a sample page to test.
+
+<CodeGroup tabs="MDX,Markdown">
+````mdx
+## Welcome to My Docs
+
+This is your first page.
+
+- Edit in real-time
+- Preview changes instantly
+````
+
+````markdown
+# Welcome to My Docs
+
+This is your first page.
+
+- Edit in real-time
+- Preview changes instantly
+````
+</CodeGroup>
+
+<Steps>
+  <Step title="Create a new page" icon="file-plus">
+    In your space, click `+ New Page`.
+  </Step>
+  <Step title="Add content" icon="edit">
+    Paste the sample above into the editor.
+  </Step>
+  <Step title="Publish" icon="upload">
+    Click `Publish` to make it live. Share the URL: `https://docs.billhunter.com/yourspace/welcome`.
+  </Step>
+</Steps>
+
+<Callout kind="success">
+Congratulations! You've set up Bill Hunter and published your first page. Explore more features next.
+</Callout>
+
+## Next steps
+
+<Columns cols={3}>
+  <Card title="Customize Your Space" icon="brush" href="/configuration">
+    Learn advanced branding and permissions.
+  </Card>
+  <Card title="Collaborate with Team" icon="users" href="/collaboration">
+    Invite members and manage workflows.
+  </Card>
+  <Card title="API Integration" icon="code" href="/api">
+    Automate docs with webhooks.
+  </Card>
+</Columns>
